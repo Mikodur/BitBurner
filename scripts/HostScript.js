@@ -48,7 +48,7 @@ while (true) {
 					continue;
 				
 				/**I think everything beyond this point is if things go correctly upon an if loop check,
-				 * so it just runs as expected. Nothing to interesting and nothing worth commenting.
+				 * so it just runs as expected. Nothing too interesting and nothing worth commenting.
 				 */
 
 				}
