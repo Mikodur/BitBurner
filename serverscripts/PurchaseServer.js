@@ -8,13 +8,16 @@ export async function main(ns) {
 		throw new Error("Amount is too great, enter a value that is 25 or less.")
 	}
 	/**Max of 25 servers, more than that it yells at me in the terminal. Just ensuring that doesn't happen. */
-	if (((ram / 2) / 2) % 2 !== 0) {
-		throw new Error("RAM must be divisable by a power of two.")
+	while(ram != 1) {
+		if (ram%2 != 0) {
+			throw new Error("RAM is not a power of two.")
+		}
+		ram = ram/2
 	}
-	/**Ram needs to be divisable by a power of 2, so after a bit of thinking, if I half any even number not divisable by two
-	 * twice then it ends up as an odd number. Therefore this checks that after two divisions it is still an even number.
-	 * Odd numbers divided end up in decimals so I don't think any numbers will break this. Probably wrong though.
+	/**Ram needs to be divisable by a power of 2, so this keeps dividing it until it equals 1, which if it were a power of two
+	 * will need to happen eventually. If at any point it becomes an odd number it throws an error.
 	 */
+	var ram = ns.args[1]
 	for (var i = 0; i < amount; ++i) {
 		ns.print("In i=0 loop, ", amount, ram)
 		if (amount < 25) {
