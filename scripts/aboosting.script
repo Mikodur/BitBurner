@@ -1,0 +1,21 @@
+/**Attempts to boost the server to 95% income all the while keeping its security in check.
+ * Definitely took this template from the tutorial.
+ * Anyway, changing the bottom most weaken to break will allow you to have this script close upon adequate income.
+ */
+var target = args[0];
+
+var moneyThresh = getServerMaxMoney(target) * 0.95;
+
+var securityThresh = getServerMinSecurityLevel(target) + 5;
+
+while (true) {
+	if (getServerSecurityLevel(target) > securityThresh) {
+
+		weaken(target);
+	} else if (getServerMoneyAvailable(target) < moneyThresh) {
+
+		grow(target);
+	} else {
+		weaken(target)
+	}
+}
