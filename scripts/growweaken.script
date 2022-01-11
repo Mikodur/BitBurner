@@ -1,0 +1,11 @@
+/** A likely abysmal script I lifted from the tutorial page of this game.  Very simple but it works.*/
+var target = args[0];
+
+var securityThresh = getServerMinSecurityLevel(target) + 5;
+
+while (true) {
+	if (getServerSecurityLevel(target) > securityThresh) {
+		weaken(target);
+	} 
+	else grow(target);
+}
